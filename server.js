@@ -13,7 +13,7 @@ require('./config/database')
  
 app.get('/', async function (req, res){
     const candidatos = await Candidato.find()
-    res.json(candidatos)
+    res.json(candidatos);
 })
 
 app.post('/cadastrar', async function (req, res){
