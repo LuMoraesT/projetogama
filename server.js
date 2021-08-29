@@ -31,7 +31,7 @@ app.post('/cadastrar', async function (req, res){
     })
  })
 
- const port = process.env.PORT | 3333
-app.listen(port, function (){
-    console.log(`Servidor rodando na porta ${port}`)
-})
+ const PORT = process.env.PORT || 3333;
+ app.listen(PORT, () => {
+     console.log(`Our app is running on port ${ PORT }`);
+ });
