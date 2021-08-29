@@ -18,7 +18,7 @@ app.get('/', async function (req, res){
 
 app.post('/cadastrar', async function (req, res){
     const candidato = await Candidato.findOne({ cpf: req.body.cpf })
-    
+
     if(candidato != null){
         res.json({msg: `O candidato(a) ${candidato.nome} já possui cadastro em nosso sistema`})
         return
@@ -31,6 +31,7 @@ app.post('/cadastrar', async function (req, res){
     })
  })
 
-app.listen(3333, function (){
-    console.log('Servidor rodando na porta 3333')
+ const port = PORT | 3333
+app.listen(port, function (){
+    console.log(`Servidor rodando na porta ${port}`)
 })
