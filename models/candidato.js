@@ -63,7 +63,7 @@ const CandidatoSchema = new Schema({
         required:true
     },
     possuiVeiculo: {
-        type: Boolean
+        type: String
     },
     habilitacao: {
         type: String

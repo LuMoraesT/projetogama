@@ -35,17 +35,46 @@ export default function Cadastro() {
             celular,
             email,
             identidade,
-            cpf
+            cpf,
+            estadoCivil,
+            sexo,
+            telefone1,
+            telefone2,
+            contato,
+            possuiVeiculo,
+            habilitacao
         }
         console.log('entramos', candidato)
         try {
-            const result = await axios.post('http://localhost:3333/cadastrar', candidato)
+            const result = await axios.post('http://immense-savannah-04223.herokuapp.com/cadastrar', candidato)
+            limparCampos()
             alert(result.data.msg)
             
         } catch (error) {
          console.error(error.message) 
          alert(error.message)  
         }
+    }
+
+    const limparCampos = () => {
+        setNome('')
+        setCargoPretendido('')
+        setdataNascimento('')
+        setestadoCivil('')
+        setSexo('')
+        setEndereco('')
+        setBairro('')
+        setCidade('')
+        setCep('')
+        setTelefone1('')
+        setTelefone2('')
+        setCelular('')
+        setContato('')
+        setEmail('')
+        setIdentidade('')
+        setCpf('')
+        setPossuiVeiculo('')
+        setHabilitacao('')
     }
 
     const buscaEndereco = async (cep) => {
@@ -151,8 +180,8 @@ export default function Cadastro() {
                 </div>
                 <div className="rg_cpf_veiculo_cnh">
                     <div className="campo">
-                        <label minLength="9" maxLength="9" for="identidade">Identidade<span className="obrigatorio">*</span></label>
-                        <input type="text" id="identidade" onChange={e => setIdentidade(e.target.value)} />
+                        <label for="identidade">Identidade<span className="obrigatorio">*</span></label>
+                        <input minLength="9" maxLength="9" type="text" id="identidade" onChange={e => setIdentidade(e.target.value)} />
                     </div>
                     <div className="campo">
                         <label for="cpf">CPF<span className="obrigatorio">*</span></label>
